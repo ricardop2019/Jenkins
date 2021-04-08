@@ -22,11 +22,16 @@ pipeline {
       }
     }
 
-    stage('Calling other Job') {
+    stage('Calling others Jobs') {
       parallel {
         stage('Call job FreeJob1') {
           steps {
             build job: 'FreeJob1'
+          }
+        }
+        stage('Call MavenTest Job') {
+          steps {
+            build job: 'MavenTest'
           }
         }
       }
