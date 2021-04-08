@@ -12,6 +12,7 @@ pipeline {
         stage('Launch Test') {
           steps {
             echo 'Launching Test Get Tarif on Server Test'
+            echo "Get the DriverPath ${ChromeDriverPath}"
           }
         }
 
@@ -32,6 +33,9 @@ pipeline {
           }
         }
 
+      }
+      environment{
+        ChromeDriverPath = 'D:\\Testes a criar\\mavenProjectFinalExample\\chromedriver.exe'
       }
     }
 
