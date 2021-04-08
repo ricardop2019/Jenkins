@@ -6,6 +6,9 @@ pipeline {
         stage('Launch Deploy/Dump') {
           steps {
             echo 'Launching Dump/Deploy on ServerTest'
+            echo 'connecting to BD'
+            echo 'Username: ${UserNameBD}'
+            echo 'Password: ${PasswordBD}'
           }
         }
 
@@ -32,5 +35,7 @@ pipeline {
   }
   environment{
     ChromeDriverPath = 'D:\\Testes a criar\\mavenProjectFinalExample\\chromedriver.exe'
+    UserNameBD = 'agora'
+    PasswordBD = 'password'
   }
 }
