@@ -34,10 +34,10 @@ pipeline {
         }
 
       }
-      environment{
-        ChromeDriverPath = 'D:\\Testes a criar\\mavenProjectFinalExample\\chromedriver.exe'
-      }
     }
 
+  }
+  environment{
+    ChromeDriverPath = 'D:\\Testes a criar\\mavenProjectFinalExample\\chromedriver.exe'
   }
 }
