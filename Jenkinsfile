@@ -7,8 +7,8 @@ pipeline {
           steps {
             echo 'Launching Dump/Deploy on ServerTest'
             echo 'connecting to BD'
-            echo 'Username: ${UserNameBD}'
-            echo 'Password: ${PasswordBD}'
+            echo "Username: ${UserNameBD}"
+            echo "Password: ${PasswordBD}"
           }
         }
 
