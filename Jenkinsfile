@@ -19,20 +19,13 @@ pipeline {
       }
     }
 
-    stage('Launch Deploy/Dump 2') {
+    stage('Calling other Job') {
       parallel {
-        stage('Launch Deploy/Dump 2') {
+        stage('Call job FreeJob1') {
           steps {
-            echo 'Launch another Deploy and Dump on other Server for tests'
+            build job: 'FreeJob1'
           }
         }
-
-        stage('Launch Test 2') {
-          steps {
-            echo 'Launching Test Login on Server Test 2'
-          }
-        }
-
       }
     }
 
