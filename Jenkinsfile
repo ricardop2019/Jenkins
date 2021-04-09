@@ -37,6 +37,21 @@ pipeline {
             build job: 'FreeJob1'
           }
         }
+        stage('ReadJson'){
+          steps {
+            @def json = "{\n" +
+                                "  \"foo\":\"f00\",\n" +
+                                "  \"bar\":\"baa\"\n" +
+                                "}"
+
+            echo "Parsing JSON: ${json}"
+
+            @def map = parseJsonToMap(json)
+
+            echo  "foo = ${map.foo}"
+            echo  "bar = ${map.bar}"
+          }
+        }
 
         stage('Call MavenTest Job') {
           steps {
