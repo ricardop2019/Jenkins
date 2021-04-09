@@ -31,7 +31,7 @@ pipeline {
         }
         stage ('ReadJson'){
           steps {
-            def props = readJSON file: "${JsonPath}"
+            def props = readJSON file: 'D:\\Testes a criar\\test.json'
           }
         }
         stage('Call MavenTest Job') {
@@ -47,6 +47,5 @@ pipeline {
     ChromeDriverPath = 'D:\\Testes a criar\\mavenProjectFinalExample\\chromedriver.exe'
     UserNameBD = 'agora'
     PasswordBD = 'password'
-    JsonPath = 'D:\\Testes a criar\\test.json'
   }
 }
