@@ -1,3 +1,11 @@
+import groovy.json.JsonSlurperClassic
+
+@NonCPS
+def parseJsonToMap(String json) {
+    final slurper = new JsonSlurperClassic()
+    return new HashMap<>(slurper.parseText(json))
+}
+
 pipeline {
   agent any
   stages {
@@ -31,7 +39,9 @@ pipeline {
         }
         stage ('ReadJson'){
           steps {
-            def props = readJSON file: ${JsonPath}
+            def json = readJSON file: ${JsonPath}
+            def map = parseJsonToMap(json)
+            echo "${map.bar}"
           }
         }
         stage('Call MavenTest Job') {
