@@ -29,9 +29,13 @@ pipeline {
             build job: 'FreeJob1'
           }
         }
-        stage('Call MavenTest Job') {
+        stage ('ReadJson'){
           steps {
             def props = readJSON file: "${JsonPath}"
+          }
+        }
+        stage('Call MavenTest Job') {
+          steps {
             build job: 'MavenTest'
           }
         }
