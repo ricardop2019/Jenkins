@@ -70,6 +70,6 @@ pipeline {
     ChromeDriverPath = 'D:\\Testes a criar\\mavenProjectFinalExample\\chromedriver.exe'
     UserNameBD = 'agora'
     PasswordBD = 'password'
-    JsonPath = 'D:\\Testes a criar\\test.json'
+    JsonPath = 'D:\\Testes a criar\\test2.json'
   }
 }
