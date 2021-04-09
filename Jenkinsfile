@@ -1,15 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('Upload a CSV'){
-      steps{
-        def inputCSVPath = input message: 'Upload file', parameters:[file(name: 'Test.csv', description: 'upload only CSV file')]
-        def csvContent = readFile "${inputCSVPath}"
-        
-        echo ("CSV File Path is: ${inputCSVPath}")
-        echo ("CSV Content is: ${csvContent}")
-      }
-    }
     stage('Launch Deploy/Dump') {
       parallel {
         stage('Launch Deploy/Dump') {
@@ -40,6 +31,7 @@ pipeline {
         }
         stage('Call MavenTest Job') {
           steps {
+            def props = readJSON file: "${JsonPath}"
             build job: 'MavenTest'
           }
         }
@@ -51,5 +43,6 @@ pipeline {
     ChromeDriverPath = 'D:\\Testes a criar\\mavenProjectFinalExample\\chromedriver.exe'
     UserNameBD = 'agora'
     PasswordBD = 'password'
+    JsonPath = 'D:\\Testes a criar\\test.json'
   }
 }
