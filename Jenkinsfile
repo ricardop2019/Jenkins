@@ -39,14 +39,14 @@ pipeline {
         }
         stage('ReadJson'){
           steps {
-            @def json = "{\n" +
+            def json = "{\n" +
                                 "  \"foo\":\"f00\",\n" +
                                 "  \"bar\":\"baa\"\n" +
                                 "}"
 
             echo "Parsing JSON: ${json}"
 
-            @def map = parseJsonToMap(json)
+            def map = parseJsonToMap(json)
 
             echo  "foo = ${map.foo}"
             echo  "bar = ${map.bar}"
