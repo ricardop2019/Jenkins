@@ -39,9 +39,17 @@ pipeline {
         }
         stage ('ReadJson'){
           steps {
-            def json = readJSON file: ${JsonPath}
+            def json = "{\n" +
+                                "  \"foo\":\"f00\",\n" +
+                                "  \"bar\":\"baa\"\n" +
+                                "}"
+
+            echo "Parsing JSON: ${json}"
+
             def map = parseJsonToMap(json)
-            echo "${map.bar}"
+
+            echo  "foo = ${map.foo}"
+            echo  "bar = ${map.bar}"
           }
         }
         stage('Call MavenTest Job') {
