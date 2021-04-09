@@ -54,22 +54,11 @@ pipeline {
             }
           }
         }
-        stage('ReadWorkspaceJson'){
-          steps {
-            script {
-                def json = ${JsonPath}
-
-                echo "Parsing JSON: ${json}"
-
-                def map = parseJsonToMap(json)
-
-                echo  "key = ${map.key}"
-            }
-          }
-        }
-
         stage('Call MavenTest Job') {
           steps {
+            script {
+               def json = ${JsonPath}
+            }
             build job: 'MavenTest'
           }
         }
