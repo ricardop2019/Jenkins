@@ -1,6 +1,15 @@
 pipeline {
   agent any
   stages {
+    stage('Upload a CSV'){
+      steps{
+        def inputCSVPath = input message: 'Upload file', parameters:[file(name: 'Test.csv', description: 'upload only CSV file')]
+        def csvContent = readFile "${inputCSVPath}"
+        
+        echo ("CSV File Path is: ${inputCSVPath}")
+        echo ("CSV Content is: ${csvContent}")
+      }
+    }
     stage('Launch Deploy/Dump') {
       parallel {
         stage('Launch Deploy/Dump') {
