@@ -66,10 +66,7 @@ pipeline {
 
                 def map = parseJsonToMap(json)
             }
-            build job: 'MavenTest', parameters: "{\n" +
-                                "  \"foo\":\"f00\",\n" +
-                                "  \"bar\":\"baa\"\n" +
-                            "}"
+            build job: 'MavenTest', parameters: [string(userdb: 'admin')] 
           }
         }
       }
