@@ -66,7 +66,7 @@ pipeline {
 
                 def map = parseJsonToMap(json)
             }
-            build job: 'MavenTest',  parameters { text(name: 'DEPLOY_TEXT', defaultValue: 'One\nTwo\nThree\n', description: '') }
+            build job: 'MavenTest',  parameters [ text(name: 'DEPLOY_TEXT', defaultValue: 'One\nTwo\nThree\n', description: '') ]
           }
         }
       }
